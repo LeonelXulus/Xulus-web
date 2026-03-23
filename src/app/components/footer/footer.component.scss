@@ -1,0 +1,78 @@
+.footer {
+  background-color: #000000;
+  color: white;
+  padding: 1.5rem 1rem 1.5rem 4.5rem;
+  font-family: 'Montserrat', sans-serif;
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .logo {
+      flex-shrink: 0;
+      img {
+        height: 90px;
+        width: auto;
+      }
+    }
+
+    .footer-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 6rem;
+      transform: translateX(-5rem); // Ajuste para escritorio
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .footer {
+    padding: 0px 32px 32px 32px; // padding lateral que deseas conservar
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+
+    .logo {
+      text-align: left;   // ← asegura que la imagen esté a la izquierda
+      width: 100%;         // opcional: ocupa todo el ancho
+    }
+
+    .footer-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem !important;
+      transform: translateX(0) !important;
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,273 @@
+// Registrar la variable CSS personalizada para el desplazamiento angular
+@property --pie-shift {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.section {
+  position: relative;
+  display: flex;
+  background-color: #1A092A;
+  color: white;
+  min-height: 60vh;
+  z-index: 1;
+    padding-top: 1rem;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+
+    h2 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: center;
+
+      span {
+        color: #AA3BAA;
+      }
+    }
+
+    .subsection {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/background-about.png');
+        background-repeat: no-repeat;
+        background-size: 40% auto;
+        background-position: center;
+        opacity: 1;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .xulus-section {
+        width: 100%;
+        margin-top: 2rem;
+
+        .xulus-container {
+          display: flex;
+          gap: 2rem;
+          align-items: flex-start;
+
+          @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 3rem;
+          }
+        }
+
+        .xulus-text {
+          flex: 0 0 40%;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: 21px;
+          line-height: 40px;
+          letter-spacing: 0.01em;
+          color: #FFF;
+
+          p {
+            margin: 0 0 1rem 0;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          @media (max-width: 768px) {
+            flex: 0 0 auto;
+            width: 100%;
+            font-size: 18px;
+            line-height: 32px;
+          }
+        }
+
+        .xulus-monitor {
+          flex: 1;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          opacity: 0.8;
+
+          .monitor-frame {
+            width: 80%;
+            background: rgba(15, 14, 14, 0.66);
+            border: 1px solid #4D4D4D;
+            box-shadow: 0px 0px 50px 20px rgba(255, 255, 255, 0.33);
+            border-radius: 10px;
+            padding: 3rem;
+
+            .monitor-screen {
+              background-color: #3C003D;
+              border-radius: 5px;
+              padding: 1rem 2rem 6.6rem 2rem;
+
+              .charts {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+
+                .bar-chart {
+                  flex-direction: column;
+                  gap: 1rem;
+                  min-width: 160px;
+
+                  .vertical-bars {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                    gap: 15px;
+                    height: 100px;
+
+                    .bar {
+                      width: 9.5px;
+                      background: #660069;
+                      border-radius: 3px 3px 0 0;
+                      transition: height 0.5s ease;
+                    }
+                  }
+
+                  .horizontal-bars {
+                    display: flex;
+                    margin-top: 0.3rem;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 6px;
+
+                    .hbar {
+                      height: 8px;
+                      border-radius: 3px;
+                      transition: width 0.5s ease;
+
+                      &:first-child {
+                        background: #660069;
+                      }
+
+                      &:last-child {
+                        background: #4F0151;
+                      }
+                    }
+                  }
+                }
+
+                // Gráfico circular con variable animada
+                .chart-pie {
+                  width: 120px;
+                  height: 120px;
+                  border-radius: 50%;
+                  opacity: 0.5;
+                  background: conic-gradient(
+                    #D52BDA 0deg calc(90deg + var(--pie-shift, 0deg)),
+                    #660069 calc(90deg + var(--pie-shift, 0deg)) calc(144deg + var(--pie-shift, 0deg)),
+                    #673868 calc(144deg + var(--pie-shift, 0deg)) 360deg
+                  );
+                }
+              }
+            }
+          }
+
+          .code-block {
+            background: #230024;
+            border-radius: 10px;
+            padding: 2rem 1.8rem 2rem 1.8rem;
+            margin-top: -8.6rem;
+            margin-right: -3rem;
+            max-width: 80%;
+            align-self: flex-end;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+            pre {
+              font-family: 'JetBrains Mono', monospace;
+              font-weight: 500;
+              font-size: 11px;
+              line-height: 15px;
+              color: #FFFFFF;
+              margin: 0;
+              white-space: pre-wrap;
+              word-break: break-word;
+            }
+          }
+
+          // ---------- Efectos hover infinitos ----------
+          &:hover {
+            // Barras verticales: animación de pulso (infinito)
+            .vertical-bars .bar:nth-child(1) { animation: pulseV1 1s infinite alternate ease-in-out; }
+            .vertical-bars .bar:nth-child(2) { animation: pulseV2 1s infinite alternate ease-in-out; }
+            .vertical-bars .bar:nth-child(3) { animation: pulseV3 1s infinite alternate ease-in-out; }
+            .vertical-bars .bar:nth-child(4) { animation: pulseV4 1s infinite alternate ease-in-out; }
+            .vertical-bars .bar:nth-child(5) { animation: pulseV5 1s infinite alternate ease-in-out; }
+            .vertical-bars .bar:nth-child(6) { animation: pulseV6 1s infinite alternate ease-in-out; }
+
+            // Barras horizontales: animación de pulso (infinito)
+            .horizontal-bars .hbar:nth-child(1) { animation: pulseH1 1s infinite alternate ease-in-out; }
+            .horizontal-bars .hbar:nth-child(2) { animation: pulseH2 1s infinite alternate ease-in-out; }
+
+            // Gráfico circular: animación del desplazamiento de los sectores
+            .chart-pie {
+              animation: pieShift 2s infinite alternate ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animaciones para las barras verticales (cada una con su propio rango)
+@keyframes pulseV1 {
+  0% { height: 85px; }
+  100% { height: 65px; }
+}
+@keyframes pulseV2 {
+  0% { height: 75px; }
+  100% { height: 50px; }
+}
+@keyframes pulseV3 {
+  0% { height: 71px; }
+  100% { height: 85px; }
+}
+@keyframes pulseV4 {
+  0% { height: 90px; }
+  100% { height: 52px; }
+}
+@keyframes pulseV5 {
+  0% { height: 95px; }
+  100% { height: 90px; }
+}
+@keyframes pulseV6 {
+  0% { height: 78px; }
+  100% { height: 89px; }
+}
+
+// Animaciones para las barras horizontales
+@keyframes pulseH1 {
+  0% { width: 147px; }
+  100% { width: 120px; }
+}
+@keyframes pulseH2 {
+  0% { width: 96px; }
+  100% { width: 150px; }
+}
+
+// Animación para el gráfico circular (desplaza los límites entre sectores)
+@keyframes pieShift {
+  0% { --pie-shift: 0deg; }   // estado original: rosa 25%, morado 15%, gris 60%
+  100% { --pie-shift: 90deg; } // nuevo estado: rosa 50%, morado 15%, gris 35%
+}
+
+// Media query para móviles
+@media (max-width: 768px) {
+  h2 {
+    margin-bottom: 3.5rem !important;
+  }
+}

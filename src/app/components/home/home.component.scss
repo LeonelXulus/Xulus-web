@@ -1,0 +1,17 @@
+hr {
+    border: none;               /* Elimina el borde predeterminado */
+    height: 1px;                 /* Grosor de 1 píxel */
+    background-color: #353336;   /* Color de la línea */
+                /* Espaciado opcional arriba/abajo (ajusta según necesites) */
+}
+section {
+  width: 100%!important;
+}
+@media (max-width: 1100px) {
+  section#about {
+    display: none;
+  }
+  section#about + hr {
+    display: none;
+  }
+}

@@ -1,0 +1,179 @@
+.section {
+  position: relative; // Necesario para el pseudo-elemento
+  display: flex;
+  //align-items: center;
+  background-color: #130025; // Fondo base (se verá en los bordes laterales)
+  color: white;
+  min-height: 60vh;
+  z-index: 1;
+  padding-top: 1rem;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative; // Asegura que el contenido esté sobre el fondo
+    z-index: 2;
+
+    h2 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: center;
+
+      span {
+        color: #AA3BAA;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      opacity: 0.9;
+      font-weight: 450;
+      max-width: 600px;
+      margin-left: auto;
+      text-align: center;
+      /* Centrar el párrafo si es más estrecho que el contenedor */
+      margin-right: auto;
+    }
+
+    .card-services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 3rem;
+
+      .service-card {
+        background-color: #201628; // Nuevo fondo
+        border: 1px solid #353336;
+        border-radius: 16px;
+        padding: 1.5rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        width: 300px; // Ancho fijo para que en pantallas grandes sean 3 por fila
+        max-width: 100%;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-7px);
+        }
+
+        .card-image {
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(270deg, #430245 0%, #A705AB 100%);
+          box-shadow: -1.5px 0px 20px rgba(255, 255, 255, 0.5);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+
+          .material-icons {
+            font-size: 40px;
+            color: white;
+          }
+
+          img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+          }
+        }
+
+        .card-title {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 29px;
+          color: #FFFFFF;
+          margin: 0 0 0.75rem 0;
+        }
+
+        .card-description {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 16px;
+          color: #FFFFFF;
+          opacity: 0.9;
+          margin: 0 0 1.25rem 0;
+          flex: 1;
+        }
+
+        .card-features {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #FFFFFF;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .material-icons {
+              font-size: 16px;
+              // Degradado para el check (más estético)
+              background: linear-gradient(135deg, #A605AB, #A400A7);
+              -webkit-background-clip: text;
+              background-clip: text;
+              color: transparent;
+              flex-shrink: 0;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media query para móviles (sin cambios en el fondo, pero puedes ajustar si lo deseas)
+@media (max-width: 600px) {
+  h2 {
+    margin-bottom: 3.5rem !important;
+  }
+
+  .section {
+    padding-top: 0.5rem !important;
+  }
+
+  .card-services {
+    gap: 1.5rem;
+
+    .service-card {
+      width: 100%; // En móvil, ocupan todo el ancho
+      padding: 1.2rem;
+
+      .card-image {
+        width: 70px;
+        height: 70px;
+
+        .material-icons {
+          font-size: 34px;
+        }
+      }
+
+      .card-title {
+        font-size: 22px;
+        line-height: 26px;
+      }
+    }
+
+  }
+}
