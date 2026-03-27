@@ -12,7 +12,7 @@
   color: white;
   min-height: 60vh;
   z-index: 1;
-    padding-top: 1rem;
+  padding-top: 1rem;
 
   .container {
     max-width: 1200px;
@@ -28,7 +28,7 @@
       text-align: center;
 
       span {
-        color: #AA3BAA;
+        color: #6C217C;
       }
     }
 
@@ -131,7 +131,7 @@
 
                     .bar {
                       width: 9.5px;
-                      background: #660069;
+                      background: #5B335C;
                       border-radius: 3px 3px 0 0;
                       transition: height 0.5s ease;
                     }
@@ -150,11 +150,11 @@
                       transition: width 0.5s ease;
 
                       &:first-child {
-                        background: #660069;
+                        background: #512552;
                       }
 
                       &:last-child {
-                        background: #4F0151;
+                        background: #4D3F4D;
                       }
                     }
                   }
@@ -165,12 +165,10 @@
                   width: 120px;
                   height: 120px;
                   border-radius: 50%;
-                  opacity: 0.5;
-                  background: conic-gradient(
-                    #D52BDA 0deg calc(90deg + var(--pie-shift, 0deg)),
-                    #660069 calc(90deg + var(--pie-shift, 0deg)) calc(144deg + var(--pie-shift, 0deg)),
-                    #673868 calc(144deg + var(--pie-shift, 0deg)) 360deg
-                  );
+                  opacity: 1;
+                  background: conic-gradient(#4D3F4D 0deg calc(90deg + var(--pie-shift, 0deg)),
+                      #512552 calc(90deg + var(--pie-shift, 0deg)) calc(144deg + var(--pie-shift, 0deg)),
+                      #5B335C calc(144deg + var(--pie-shift, 0deg)) 360deg);
                 }
               }
             }
@@ -198,25 +196,46 @@
             }
           }
 
-          // ---------- Efectos hover infinitos ----------
-          &:hover {
-            // Barras verticales: animación de pulso (infinito)
-            .vertical-bars .bar:nth-child(1) { animation: pulseV1 1s infinite alternate ease-in-out; }
-            .vertical-bars .bar:nth-child(2) { animation: pulseV2 1s infinite alternate ease-in-out; }
-            .vertical-bars .bar:nth-child(3) { animation: pulseV3 1s infinite alternate ease-in-out; }
-            .vertical-bars .bar:nth-child(4) { animation: pulseV4 1s infinite alternate ease-in-out; }
-            .vertical-bars .bar:nth-child(5) { animation: pulseV5 1s infinite alternate ease-in-out; }
-            .vertical-bars .bar:nth-child(6) { animation: pulseV6 1s infinite alternate ease-in-out; }
 
-            // Barras horizontales: animación de pulso (infinito)
-            .horizontal-bars .hbar:nth-child(1) { animation: pulseH1 1s infinite alternate ease-in-out; }
-            .horizontal-bars .hbar:nth-child(2) { animation: pulseH2 1s infinite alternate ease-in-out; }
-
-            // Gráfico circular: animación del desplazamiento de los sectores
-            .chart-pie {
-              animation: pieShift 2s infinite alternate ease-in-out;
-            }
+          // Barras verticales: animación de pulso (infinito)
+          .vertical-bars .bar:nth-child(1) {
+            animation: pulseV1 2s infinite alternate ease-in-out;
           }
+
+          .vertical-bars .bar:nth-child(2) {
+            animation: pulseV2 2s infinite alternate ease-in-out;
+          }
+
+          .vertical-bars .bar:nth-child(3) {
+            animation: pulseV3 2s infinite alternate ease-in-out;
+          }
+
+          .vertical-bars .bar:nth-child(4) {
+            animation: pulseV4 2s infinite alternate ease-in-out;
+          }
+
+          .vertical-bars .bar:nth-child(5) {
+            animation: pulseV5 2s infinite alternate ease-in-out;
+          }
+
+          .vertical-bars .bar:nth-child(6) {
+            animation: pulseV6 2s infinite alternate ease-in-out;
+          }
+
+          // Barras horizontales: animación de pulso (infinito)
+          .horizontal-bars .hbar:nth-child(1) {
+            animation: pulseH1 2s infinite alternate ease-in-out;
+          }
+
+          .horizontal-bars .hbar:nth-child(2) {
+            animation: pulseH2 2s infinite alternate ease-in-out;
+          }
+
+          // Gráfico circular: animación del desplazamiento de los sectores
+          .chart-pie {
+            animation: pieShift 2.5s infinite alternate ease-in-out;
+          }
+
         }
       }
     }
@@ -225,44 +244,98 @@
 
 // Animaciones para las barras verticales (cada una con su propio rango)
 @keyframes pulseV1 {
-  0% { height: 85px; }
-  100% { height: 65px; }
+  0% {
+    height: 85px;
+  }
+
+  100% {
+    height: 65px;
+  }
 }
+
 @keyframes pulseV2 {
-  0% { height: 75px; }
-  100% { height: 50px; }
+  0% {
+    height: 75px;
+  }
+
+  100% {
+    height: 50px;
+  }
 }
+
 @keyframes pulseV3 {
-  0% { height: 71px; }
-  100% { height: 85px; }
+  0% {
+    height: 71px;
+  }
+
+  100% {
+    height: 85px;
+  }
 }
+
 @keyframes pulseV4 {
-  0% { height: 90px; }
-  100% { height: 52px; }
+  0% {
+    height: 90px;
+  }
+
+  100% {
+    height: 52px;
+  }
 }
+
 @keyframes pulseV5 {
-  0% { height: 95px; }
-  100% { height: 90px; }
+  0% {
+    height: 90px;
+  }
+
+  100% {
+    height: 82px;
+  }
 }
+
 @keyframes pulseV6 {
-  0% { height: 78px; }
-  100% { height: 89px; }
+  0% {
+    height: 78px;
+  }
+
+  100% {
+    height: 89px;
+  }
 }
 
 // Animaciones para las barras horizontales
 @keyframes pulseH1 {
-  0% { width: 147px; }
-  100% { width: 120px; }
+  0% {
+    width: 147px;
+  }
+
+  100% {
+    width: 100px;
+  }
 }
+
 @keyframes pulseH2 {
-  0% { width: 96px; }
-  100% { width: 150px; }
+  0% {
+    width: 96px;
+  }
+
+  100% {
+    width: 150px;
+  }
 }
 
 // Animación para el gráfico circular (desplaza los límites entre sectores)
 @keyframes pieShift {
-  0% { --pie-shift: 0deg; }   // estado original: rosa 25%, morado 15%, gris 60%
-  100% { --pie-shift: 90deg; } // nuevo estado: rosa 50%, morado 15%, gris 35%
+  0% {
+    --pie-shift: 0deg;
+  }
+
+  // estado original: rosa 25%, morado 15%, gris 60%
+  100% {
+    --pie-shift: 90deg;
+  }
+
+  // nuevo estado: rosa 50%, morado 15%, gris 35%
 }
 
 // Media query para móviles

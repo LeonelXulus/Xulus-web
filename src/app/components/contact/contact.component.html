@@ -51,7 +51,18 @@
             </mat-error>
           </mat-form-field>
 
-          <button type="submit" class="submit-btn">Submit</button>
+          <!-- Botón con spinner y mensaje de intentos -->
+          <button type="submit" class="submit-btn" [disabled]="isSubmitting || attempts >= 5">
+            <ng-container *ngIf="isSubmitting">
+              <mat-spinner diameter="20" class="spinner"></mat-spinner>
+              <span>Loading...</span>
+            </ng-container>
+            <ng-container *ngIf="!isSubmitting">
+              <span>Submit</span>
+            </ng-container>
+          </button>
+
+        
         </form>
       </div>
 

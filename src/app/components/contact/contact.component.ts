@@ -11,6 +11,8 @@ import { environment } from '../../enviroment';
 })
 export class ContactComponent {
   contactForm: FormGroup;
+  isSubmitting = false;
+  attempts = 0;
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
     this.contactForm = this.fb.group({
@@ -27,6 +29,13 @@ export class ContactComponent {
       this.openSnackBar('Please fill in all required fields correctly.', 'error');
       return;
     }
+
+    if (this.attempts >= 5) {
+      this.openSnackBar('You have reached the maximum number of attempts (5).', 'error');
+      return;
+    }
+
+    this.isSubmitting = true;
 
     try {
       const result = await emailjs.send(
@@ -47,7 +56,10 @@ export class ContactComponent {
       this.contactForm.reset();
     } catch (error) {
       console.error('Error sending email', error);
-      this.openSnackBar('Se produjo un error. Inténtalo de nuevo.', 'error');
+      this.openSnackBar('An error occurred. Please try again.', 'error');
+    } finally {
+      this.attempts++;
+      this.isSubmitting = false;
     }
   }
 
@@ -55,7 +67,7 @@ export class ContactComponent {
     this.snackBar.open(message, 'X', {
       duration: 5000,
       panelClass: type === 'success' ? ['custom-snackbar', 'snackbar-success'] : ['custom-snackbar', 'snackbar-error'],
-      verticalPosition: 'bottom', // Puede ser 'top' o 'bottom'
+      verticalPosition: 'bottom',
       horizontalPosition: 'center'
     });
   }
