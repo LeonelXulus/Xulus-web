@@ -1,0 +1,108 @@
+<section class="section">
+  <div class="container">
+    <h2>Selected <span class="mobile-break"></span><span>Case Studies</span></h2>
+    <p class="subtitle">Examples of our work in scalable backend and AI solutions</p>
+
+    <!-- Desktop: 3 cards en fila -->
+    <div class="cards desktop">
+      <!-- Card 1 -->
+      <div class="case-card">
+        <span class="tag">SaaS Backend</span>
+        <h3 class="card-title">Multi-tenant Analytics Platform</h3>
+        <div class="divider"></div>
+        <p class="card-description">Scalable backend for high concurrency SaaS environments.</p>
+        <div class="divider"></div>
+        <p class="card-tech">Java · Spring Boot · PostgreSQL · Redis</p>
+        <div class="divider"></div>
+        <p class="card-stats">10k+ users · -40% latency</p>
+        <a class="card-button">View Case →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="case-card">
+        <span class="tag">AI Automation</span>
+        <h3 class="card-title">AI Receptionist<br>System</h3>
+        <div class="divider"></div>
+        <p class="card-description">Automated booking and customer handling.<br>&nbsp;</p>
+        <div class="divider"></div>
+        <p class="card-tech">Twilio · NPL · Node.js · Redis</p>
+        <div class="divider"></div>
+        <p class="card-stats">70% automated · 24/7 support</p>
+        <a class="card-button">View Case →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="case-card">
+        <span class="tag">SaaS Backend</span>
+        <h3 class="card-title">Real-Time Trading<br>Engine</h3>
+        <div class="divider"></div>
+        <p class="card-description">Low-latency crypto exchange system.<br>&nbsp;</p>
+        <div class="divider"></div>
+        <p class="card-tech">Go · Kafka · PostgreSQL · Redis</p>
+        <div class="divider"></div>
+        <p class="card-stats">10k TPS · Sub-second latency</p>
+        <a class="card-button">View Case →</a>
+      </div>
+    </div>
+
+    <!-- Mobile: carrusel con flechas -->
+    <div class="cards mobile" *ngIf="isMobile">
+      <div class="arrow-zone">
+        <button class="arrow" (click)="prev()" [class.invisible]="currentCard === 0">
+          <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L1 9L9 17" stroke="#989191" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="card-wrapper">
+        <!-- Card 1 -->
+        <div class="case-card slide-in" *ngIf="currentCard === 0" [class.slide-left]="slideDirection === 'left'" [class.slide-right]="slideDirection === 'right'">
+          <span class="tag">SaaS Backend</span>
+          <h3 class="card-title">Multi-tenant Analytics Platform</h3>
+          <div class="divider"></div>
+          <p class="card-description">Scalable backend for high concurrency SaaS environments.</p>
+          <div class="divider"></div>
+          <p class="card-tech">Java · Spring Boot · PostgreSQL · Redis</p>
+          <div class="divider"></div>
+          <p class="card-stats">10k+ users · -40% latency</p>
+          <a class="card-button">View Case →</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="case-card slide-in" *ngIf="currentCard === 1" [class.slide-left]="slideDirection === 'left'" [class.slide-right]="slideDirection === 'right'">
+          <span class="tag">AI Automation</span>
+          <h3 class="card-title">AI Receptionist<br>System</h3>
+          <div class="divider"></div>
+          <p class="card-description">Automated booking and customer handling.<br>&nbsp;</p>
+          <div class="divider"></div>
+          <p class="card-tech">Twilio · NPL · Node.js · Redis</p>
+          <div class="divider"></div>
+          <p class="card-stats">70% automated · 24/7 support</p>
+          <a class="card-button">View Case →</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="case-card slide-in" *ngIf="currentCard === 2" [class.slide-left]="slideDirection === 'left'" [class.slide-right]="slideDirection === 'right'">
+          <span class="tag">SaaS Backend</span>
+          <h3 class="card-title">Real-Time Trading<br>Engine</h3>
+          <div class="divider"></div>
+          <p class="card-description">Low-latency crypto exchange system.<br>&nbsp;</p>
+          <div class="divider"></div>
+          <p class="card-tech">Go · Kafka · PostgreSQL · Redis</p>
+          <div class="divider"></div>
+          <p class="card-stats">10k TPS · Sub-second latency</p>
+          <a class="card-button">View Case →</a>
+        </div>
+      </div>
+
+      <div class="arrow-zone">
+        <button class="arrow" (click)="next()" [class.invisible]="currentCard === totalCards - 1">
+          <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L9 9L1 17" stroke="#989191" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,12 @@
 .section {
-    position: relative;                // Necesario para el pseudo-elemento
+    position: relative; // Necesario para el pseudo-elemento
     display: flex;
-    background-color: #1B092B;         // Fondo base (se verá en los bordes laterales)
+    background-color: #0C0016!important; // Fondo base (se verá en los bordes laterales)
     color: white;
     min-height: 50vh;
     z-index: 1;
     padding-top: 1rem;
+        opacity: 1; // Ajusta la transparencia (0-1)
 
     // Pseudo-elemento con el fondo (degradado + imagen)
     &::before {
@@ -13,26 +14,19 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        // Capas: degradado (primero) e imagen (segundo)
-        background-image:
-            linear-gradient(to top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%),
-            url('/background-our-values.png');
-        background-repeat: no-repeat, no-repeat;
-        // Posicionamiento: degradado anclado abajo, imagen centrada horizontalmente y abajo
-        background-position: bottom, center bottom;
-        // Tamaños: degradado automático, imagen al 90% del ancho (altura automática)
-        background-size: auto, 93% auto;
-        // Efectos: opacidad general y desenfoque
-        opacity: 1;                    // Ajusta la transparencia (0-1)
-        filter: blur(2px);                // Ajusta el desenfoque (px)
-        z-index: -1;                      // Detrás del contenido
-        pointer-events: none;              // No interfiere con clics
+        width: 100%!important;
+        height: 100%!important;
+        background-image: url('/background-our-values.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+        opacity: 1;
+        z-index: -1;
+        pointer-events: none;
+
         @media (max-width: 600px) {
-            
-        background-image: none;           // Ajusta la transparencia (0-1)
-        filter: blur(0px);    
+            background-size: cover;
+            background-position: center center;
         }
     }
 
@@ -40,7 +34,7 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
-        position: relative;               // Asegura que el contenido esté sobre el fondo
+        position: relative; // Asegura que el contenido esté sobre el fondo
         z-index: 2;
 
         h2 {
@@ -50,7 +44,7 @@
             text-align: center;
 
             .values {
-                color: #63376D;
+                color: #531484;
             }
         }
 
@@ -99,8 +93,10 @@
 // Media query para móviles (sin cambios en el fondo, pero puedes ajustar si lo deseas)
 @media (max-width: 600px) {
     .section {
-        padding-top: 0.5rem!important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 4rem!important;
     }
+
     h2 {
         margin-bottom: 3.5rem !important;
     }

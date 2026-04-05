@@ -5,7 +5,7 @@
       <!-- En móvil: logo si no hay scroll, hamburguesa si hay scroll -->
       <ng-container *ngIf="isMobile">
         <div class="logo" *ngIf="!scrolled">
-          <img src="logo.png" alt="Logo">
+          <img src="x.png" alt="Logo">
         </div>
         <div class="hamburger pt-4" *ngIf="scrolled" (click)="toggleMenu()" [class.active]="isMenuOpen">
           <span class="bar"></span>
@@ -15,7 +15,7 @@
       </ng-container>
       <!-- En escritorio: siempre el logo -->
       <div class="logo" *ngIf="!isMobile">
-        <img src="logo.png" alt="Logo">
+        <img src="Logo.svg" alt="Logo">
       </div>
     </div>
 

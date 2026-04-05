@@ -17,8 +17,8 @@ import { Component, Input } from '@angular/core';
     >
       <defs>
         <linearGradient [id]="gradientId" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#A605AB" />
-          <stop offset="100%" stop-color="#A400A7" />
+          <stop offset="0%" stop-color="#9000FF" />
+          <stop offset="100%" stop-color="#9000FF" />
         </linearGradient>
       </defs>
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" [attr.stroke]="'url(#' + gradientId + ')'" />

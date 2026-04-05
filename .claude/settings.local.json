@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/leone/Desktop/Github/xulus-web -name *.scss -type f)"
+    ]
+  }
+}

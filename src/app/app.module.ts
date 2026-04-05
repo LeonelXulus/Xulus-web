@@ -21,6 +21,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ValuesComponent } from './components/values/values.component';
 import { CheckIconComponent } from './core/check-circle/check-circle.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CaseStudiesComponent } from './components/case-studies/case-studies.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HeroComponent,
     ValuesComponent,
     CheckIconComponent,
-    FooterComponent
+    FooterComponent,
+    CaseStudiesComponent
   ],
   imports: [
     BrowserModule,
