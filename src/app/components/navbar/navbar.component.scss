@@ -44,6 +44,23 @@
       width: 55px;
       height: 55px;
     }
+
+    .mobile-logo,
+    .mobile-hamburger {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: flex;
+      }
+    }
+
+    .desktop-logo {
+      display: flex;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   .logo {
@@ -222,3 +239,4 @@
     display: none;
   }
 }
+

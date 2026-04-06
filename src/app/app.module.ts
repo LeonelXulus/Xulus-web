@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { ValuesComponent } from './components/values/values.component';
 import { CheckIconComponent } from './core/check-circle/check-circle.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CaseStudiesComponent } from './components/case-studies/case-studies.component';
+import { CaseDetailDialogComponent } from './components/case-detail-dialog/case-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { CaseStudiesComponent } from './components/case-studies/case-studies.com
     ValuesComponent,
     CheckIconComponent,
     FooterComponent,
-    CaseStudiesComponent
+    CaseStudiesComponent,
+    CaseDetailDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { CaseStudiesComponent } from './components/case-studies/case-studies.com
     MatInputModule,
     AppRoutingModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent]

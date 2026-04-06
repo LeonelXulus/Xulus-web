@@ -1,0 +1,104 @@
+<div class="dialog-container">
+  <!-- Close button top right -->
+  <button class="close-icon" (click)="close()">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1L13 13M13 1L1 13" stroke="#8F90A0" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="dialog-body">
+    <!-- Left panel -->
+    <div class="left-panel">
+      <span class="label">CASE STUDY</span>
+      <h2 class="dialog-title">{{ data.title }}</h2>
+      <p class="dialog-description">{{ data.description }}</p>
+
+      <!-- Architecture diagram -->
+      <div class="architecture">
+        <div class="arch-column tenants">
+          <div class="arch-items">
+            <div class="arch-item tenant" *ngFor="let item of data.architecture.leftItems; let i = index">
+              <img [src]="item.icon" class="tenant-icon" alt="">
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+          <!-- Bracket: horizontal arms + vertical connector -->
+          <div class="bracket">
+            <div class="bracket-arm-top"></div>
+            <div class="bracket-vertical"></div>
+            <div class="bracket-arm-bottom"></div>
+          </div>
+        </div>
+
+        <!-- Horizontal line from tenants to gateway -->
+        <div class="line-horizontal">
+          <div class="arrow-mid"></div>
+          <div class="arrow-end"></div>
+        </div>
+
+        <div class="arch-column gateway">
+          <img [src]="data.architecture.centerIcon" class="gateway-icon" alt="">
+          <span class="gateway-label">{{ data.architecture.centerLabel }}</span>
+          <span class="gateway-sub">{{ data.architecture.centerSubLabel }}</span>
+        </div>
+
+        <!-- Line from gateway to services -->
+        <div class="line-gateway-services">
+          <div class="arrow-return"></div>
+          <div class="arrow-to-services"></div>
+        </div>
+
+        <div class="arch-column services">
+          <div class="services-card">
+            <div class="service-item" *ngFor="let item of data.architecture.rightItems">
+              <img [src]="item.icon" class="service-icon" [attr.data-name]="item.name" alt="">
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge -->
+      <div class="challenge-section">
+        <h3 class="section-label">The Challenge</h3>
+        <p class="challenge-text">{{ data.challenge }}</p>
+      </div>
+    </div>
+
+    <!-- Vertical divider -->
+    <div class="vertical-divider"></div>
+
+    <!-- Right panel -->
+    <div class="right-panel">
+      <span class="label">CASE OVERVIEW</span>
+
+      <div class="overview-items">
+        <div class="overview-item">
+          <span class="overview-key">Client</span>
+          <span class="overview-value">{{ data.overview.client }}</span>
+        </div>
+        <div class="overview-item">
+          <span class="overview-key">Duration</span>
+          <span class="overview-value">{{ data.overview.duration }}</span>
+        </div>
+        <div class="overview-item">
+          <span class="overview-key">Tech Stack</span>
+          <span class="overview-value">{{ data.overview.stack }}</span>
+        </div>
+        <div class="overview-item">
+          <span class="overview-key">Team Size</span>
+          <span class="overview-value">{{ data.overview.teamSize }}</span>
+        </div>
+      </div>
+
+      <div class="highlights-section">
+        <span class="label">KEY HIGHLIGHTS</span>
+        <ul class="highlights-list">
+          <li *ngFor="let h of data.highlights">{{ h }}</li>
+        </ul>
+      </div>
+
+      <button class="close-button" (click)="close()">Close</button>
+    </div>
+  </div>
+</div>

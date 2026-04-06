@@ -2,7 +2,7 @@
   position: relative; // Necesario para el pseudo-elemento
   display: flex;
   //align-items: center;
-  background-color: #130025; // Fondo base (se verá en los bordes laterales)
+  background: linear-gradient(180deg, rgba(33, 13, 33, 0) 0%, rgba(78, 78, 78, 0.39) 100%); // Fondo base (se verá en los bordes laterales)
   color: white;
   min-height: 60vh;
   z-index: 1;

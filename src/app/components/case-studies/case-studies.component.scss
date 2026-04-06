@@ -39,6 +39,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    padding-top: 2.5rem!important;
     position: relative;
     z-index: 2;
     width: 100%;
@@ -151,6 +152,7 @@
       flex-shrink: 1;
       min-width: 0;
       overflow: hidden;
+      width: 358px;
       max-width: 358px;
       margin: 0 12px;
     }
@@ -268,7 +270,7 @@
       @media (max-width: 768px) {
         width: 100%;
         flex-shrink: 1;
-        height: auto;
+        height: 397px;
       }
 
       .tag {

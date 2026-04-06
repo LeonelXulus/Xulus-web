@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /c/Users/leone/Desktop/Github/xulus-web -name *.scss -type f)"
+      "Bash(find /c/Users/leone/Desktop/Github/xulus-web -name *.scss -type f)",
+      "Bash(python -c \":*)",
+      "Bash(node -e \"const d=require\\(''./angular.json''\\); console.log\\(JSON.stringify\\(d.projects[''xulus-web''].architect.build.options, null, 2\\)\\)\")"
     ]
   }
 }

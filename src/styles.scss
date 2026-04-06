@@ -117,3 +117,36 @@ mat-error {
     /* un poco más si el navbar ocupa más en móvil */
   }
 }
+
+// ─── Case Study Dialog Global Styles ───
+.case-study-dialog-panel {
+  .mat-mdc-dialog-container {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 20px !important;
+    overflow: visible !important;
+
+    .mdc-dialog__surface {
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 20px !important;
+      overflow: visible !important;
+    }
+  }
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+@media (max-width: 768px) {
+  .case-study-dialog-panel {
+    .mat-mdc-dialog-container,
+    .mat-mdc-dialog-container .mdc-dialog__surface {
+      border-radius: 14px !important;
+    }
+  }
+}

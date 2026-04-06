@@ -1,4 +1,4 @@
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -6,33 +6,49 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
   scrolled = false;
-  isMobile = false; // Valor por defecto para SSR
+  isMobile = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  private boundScroll = this.handleScroll.bind(this);
+  private boundResize = this.handleResize.bind(this);
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.isMobile = window.innerWidth <= 768;
+      this.scrolled = this.getScrollY() > 50;
+
+      window.addEventListener('scroll', this.boundScroll, true);
+      window.addEventListener('resize', this.boundResize);
     }
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (isPlatformBrowser(this.platformId)) {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      this.scrolled = scrollY > 50;
+  private getScrollY(): number {
+    return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+
+  private handleScroll() {
+    const wasScrolled = this.scrolled;
+    this.scrolled = this.getScrollY() > 50;
+    if (wasScrolled !== this.scrolled) {
+      this.cdr.detectChanges();
     }
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth <= 768;
-      // Si cambia a escritorio y el menú estaba abierto, lo cerramos y quitamos el bloqueo del scroll
+  private handleResize() {
+    const wasMobile = this.isMobile;
+    this.isMobile = window.innerWidth <= 768;
+    if (wasMobile !== this.isMobile) {
       if (!this.isMobile && this.isMenuOpen) {
         this.closeMenu();
       }
+      this.cdr.detectChanges();
     }
   }
 
@@ -48,7 +64,6 @@ export class NavbarComponent {
     }
   }
 
-  // Actualiza la clase en el body para bloquear/desbloquear el scroll
   private updateBodyScroll() {
     if (isPlatformBrowser(this.platformId)) {
       if (this.isMenuOpen) {
@@ -60,19 +75,18 @@ export class NavbarComponent {
   }
 
   scrollTo(sectionId: string) {
-    // Cierra el menú antes de desplazar
     this.closeMenu();
-
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
-  // Limpiamos la clase al destruir el componente para evitar efectos persistentes
   ngOnDestroy() {
     if (isPlatformBrowser(this.platformId)) {
       document.body.classList.remove('menu-open');
+      window.removeEventListener('scroll', this.boundScroll, true);
+      window.removeEventListener('resize', this.boundResize);
     }
   }
 }
