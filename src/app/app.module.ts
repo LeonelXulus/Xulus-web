@@ -24,6 +24,8 @@ import { CheckIconComponent } from './core/check-circle/check-circle.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CaseStudiesComponent } from './components/case-studies/case-studies.component';
 import { CaseDetailDialogComponent } from './components/case-detail-dialog/case-detail-dialog.component';
+import { AiReceptionistDialogComponent } from './components/ai-receptionist-dialog/ai-receptionist-dialog.component';
+import { TradingEngineDialogComponent } from './components/trading-engine-dialog/trading-engine-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CaseDetailDialogComponent } from './components/case-detail-dialog/case-
     CheckIconComponent,
     FooterComponent,
     CaseStudiesComponent,
-    CaseDetailDialogComponent
+    CaseDetailDialogComponent,
+    AiReceptionistDialogComponent,
+    TradingEngineDialogComponent
   ],
   imports: [
     BrowserModule,

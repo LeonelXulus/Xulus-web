@@ -299,7 +299,7 @@
   box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
   align-self: center;
   margin-left: 5px;
-  margin-right: -46px;
+  margin-right: -41px;
 
   // Arrow at midpoint ">"
   .arrow-mid {
@@ -341,7 +341,7 @@
   background: linear-gradient(to right, #121C2B 0%, #0C3A7D 36%, #7A43D6 100%);
   box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
   align-self: center;
-  margin-left: 5px;
+  margin-left: 8px;
   margin-right: 5px;
 
   // Arrow at 80% from services back toward gateway "<"
@@ -455,7 +455,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 20px;
   color: #F0F0F4;
   white-space: pre-line;
 }
@@ -573,7 +573,7 @@
 
   .arch-column {
     &.gateway {
-      transform: translate(16px, 8px);
+      transform: translate(20px, 8px);
 
       .gateway-icon {
         width: 36px;
@@ -581,12 +581,13 @@
       }
 
       .gateway-label {
-        font-size: 11px;
-        line-height: 14px;
+        font-size: 10px;
+        line-height: 12px;
       }
 
       .gateway-sub {
-        font-size: 9px;
+        font-size: 8px;
+        line-height: 10px;
       }
     }
   }
@@ -595,61 +596,62 @@
     font-size: 9px;
 
     &.tenant {
-      width: 100px;
-      height: 24px;
-      padding: 0 8px;
-      gap: 4px;
+      width: 80px;
+      height: 22px;
+      padding: 0 6px;
+      gap: 3px;
+      font-size: 8px;
 
       .tenant-icon {
-        width: 16px;
-        height: 10px;
+        width: 14px;
+        height: 9px;
       }
     }
   }
 
   .bracket {
-    right: -8px;
+    right: -6px;
     width: 8px;
 
     .bracket-arm-top {
-      top: 12px;
+      top: 11px;
     }
 
     .bracket-vertical {
-      top: 12px;
-      bottom: 12px;
+      top: 11px;
+      bottom: 11px;
     }
 
     .bracket-arm-bottom {
-      bottom: 12px;
+      bottom: 11px;
     }
   }
 
   .line-horizontal {
     margin-left: 3px;
-    margin-right: -27px;
+    margin-right: -35px;
 
     .arrow-mid,
     .arrow-end {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
     }
   }
 
   .line-gateway-services {
-    margin-left: 3px;
-    margin-right: -4px;
+    margin-left: 6px;
+    margin-right: 3px;
 
     .arrow-return,
     .arrow-to-services {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
     }
   }
 
   .services-card {
-    padding: 3px 6px 8px;
-    gap: 0.3rem;
+    padding: 3px 5px 6px;
+    gap: 0.2rem;
     border-radius: 8px;
   }
 
@@ -671,7 +673,8 @@
     }
 
     span {
-      font-size: 8px;
+      font-size: 7px;
+      line-height: 9px;
     }
   }
 

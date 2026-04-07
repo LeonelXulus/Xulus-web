@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  @Input() backgroundImage = 'background-desktop.svg'; // tu imagen
+  @Input() backgroundImage = 'background-desktop.png'; // tu imagen
   
   scrollTo(sectionId: string): void {
     const element = document.getElementById(sectionId);

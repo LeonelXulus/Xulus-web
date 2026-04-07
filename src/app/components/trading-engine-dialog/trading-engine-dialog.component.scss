@@ -1,0 +1,760 @@
+// ─── Dialog Container ───
+.dialog-container {
+  position: relative;
+  background: radial-gradient(42.16% 34.68% at 53.23% 92.49%, rgba(122, 67, 214, 0.18) 0%, rgba(122, 67, 214, 0) 100%), #0d0d14;
+  border: 1px solid #242434;
+  border-radius: 20px;
+  padding: 2.5rem;
+  color: white;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow:
+    0 0 60px rgba(83, 20, 132, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.6);
+
+  // Scrollbar styling
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #2a2a3a;
+    border-radius: 3px;
+  }
+}
+
+// ─── Close Icon (X) ───
+.close-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// ─── Body Layout ───
+.dialog-body {
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+// ─── Labels (CASE STUDY, CASE OVERVIEW, KEY HIGHLIGHTS) ───
+.label {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A3A3AD;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+// ─── Left Panel ───
+.left-panel {
+  flex: 1.6;
+  min-width: 0;
+
+  .dialog-title {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 38px;
+    color: #F5F5F7;
+    margin: 0 0 1rem 0;
+  }
+
+  .dialog-description {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #B9BAC3;
+    margin: 0 0 2rem 0;
+    max-width: 520px;
+  }
+}
+
+// ─── Architecture Diagram ───
+.architecture {
+  position: relative;
+  background: linear-gradient(145deg, #12121e 0%, #0e0e18 100%);
+  border: 1px solid #1e1e2e;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  .arch-column {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 500px) {
+    padding: 1.2rem 0.8rem;
+  }
+}
+
+.arch-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.tenants {
+    position: relative;
+    padding-right: 3px;
+  }
+
+  &.gateway {
+    align-items: center;
+    gap: 0.15rem;
+    transform: translate(29px, 13px);
+
+    .gateway-icon {
+      width: 113px;
+      height: 95px;
+      margin-bottom: -20px;
+    }
+
+    .gateway-label {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #E8E8EF;
+    }
+
+    .gateway-sub {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 13px;
+      color: #8F90A0;
+      margin-top: 0px;
+    }
+  }
+}
+
+.arch-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.arch-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-align: center;
+  white-space: nowrap;
+
+  &.tenant {
+    width: 140px;
+    height: 30px;
+    box-sizing: border-box;
+    background: #15151D;
+    border: 1px solid #252531;
+    color: #c7a6ff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+
+    .tenant-icon {
+      width: 22.36px;
+      height: 14.38px;
+      flex-shrink: 0;
+    }
+  }
+
+}
+
+.services-card {
+  background: linear-gradient(180deg, #171721 25%, #28103B 100%);
+  box-shadow: -1px -1px 2px rgba(83, 20, 132, 0.25);
+  border-radius: 10px;
+  padding: 4px 12px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1px;
+
+  .service-icon {
+    width: 34px;
+    height: 33px;
+  }
+
+  // Kafka Stream
+  &:nth-child(1) {
+    transform: translateY(2px);
+
+    .service-icon {
+      width: 34px;
+      height: 32px;
+    }
+  }
+
+  // PostgreSQL
+  &:nth-child(2) {
+    transform: translateY(-2px);
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    span {
+      margin-top: -8px;
+    }
+  }
+
+  // Redis
+  &:nth-child(3) {
+    transform: translateY(0.5px);
+
+    .service-icon {
+      width: 39px;
+      height: 36px;
+    }
+
+    span {
+      margin-top: 0.5px;
+    }
+  }
+
+  span {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #CFCFDB;
+    white-space: pre-line;
+    text-align: center;
+  }
+}
+
+// ─── Connection Lines ───
+// Bracket connector (horizontal arms + vertical line)
+.bracket {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  pointer-events: none;
+
+  // Top horizontal arm - from 1st tenant center-right
+  .bracket-arm-top {
+    position: absolute;
+    top: 15px; // center of 30px tenant card
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #0C3A7D;
+    box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
+  }
+
+  // Vertical connector
+  .bracket-vertical {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    bottom: 15px;
+    width: 2px;
+    background: linear-gradient(to bottom, #0C3A7D 0%, #4E6183 50%, #531484 100%);
+    box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
+    transform: rotate(0.34deg);
+  }
+
+  // Bottom horizontal arm - from 3rd tenant center-right
+  .bracket-arm-bottom {
+    position: absolute;
+    bottom: 15px; // center of 30px tenant card
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #531484;
+    box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
+  }
+}
+
+.line-horizontal {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #121C2B 0%, #0C3A7D 50%, #9CB6DB 100%);
+  box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
+  align-self: center;
+  margin-left: 5px;
+  margin-right: -46px;
+
+  // Arrow at midpoint ">"
+  .arrow-mid {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid #0C3A7D;
+    border-right: 2px solid #0C3A7D;
+    border-bottom: none;
+    border-left: none;
+    background: transparent;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  // Arrow at end ">"
+  .arrow-end {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid #9CB6DB;
+    border-right: 2px solid #9CB6DB;
+    border-bottom: none;
+    border-left: none;
+    background: transparent;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+}
+
+// Line from gateway to services card
+.line-gateway-services {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #121C2B 0%, #0C3A7D 36%, #7A43D6 100%);
+  box-shadow: 0px 0px 4px rgba(255, 249, 249, 0.22);
+  align-self: center;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  // Arrow at 80% from services back toward gateway "<"
+  .arrow-return {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid #0C3A7D;
+    border-left: 2px solid #0C3A7D;
+    border-bottom: none;
+    border-right: none;
+    background: transparent;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  // Arrow at end near services card ">"
+  .arrow-to-services {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid #7A43D6;
+    border-right: 2px solid #7A43D6;
+    border-bottom: none;
+    border-left: none;
+    background: transparent;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+}
+
+// ─── Challenge Section ───
+.challenge-section {
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #A3A3AD;
+    margin: 0 0 0.6rem 0;
+  }
+
+  .challenge-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #B9BAC3;
+    margin: 0;
+  }
+}
+
+// ─── Vertical Divider ───
+.vertical-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #2a2a3a 20%, #2a2a3a 80%, transparent);
+  align-self: stretch;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// ─── Right Panel ───
+.right-panel {
+  flex: 0.9;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    border-top: 1px solid #2a2a3a;
+    padding-top: 1.5rem;
+  }
+}
+
+// ─── Overview Items ───
+.overview-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.overview-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.overview-key {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #A3A3AD;
+  min-width: 70px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.overview-value {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #F0F0F4;
+  white-space: pre-line;
+}
+
+// ─── Highlights ───
+.highlights-section {
+  margin-bottom: 1.5rem;
+  flex: 1;
+
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #A3A3AD;
+    letter-spacing: normal;
+  }
+
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  li {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #D9DAE2;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    &::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2B2C39;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+  }
+}
+
+// ─── Close Button ───
+.close-button {
+  width: 192px;
+  height: 44px;
+  background: linear-gradient(92.97deg, #1A1027 -2.08%, #2C1244 49.79%, #180E25 97.68%);
+  border: 1px solid #7A43D6;
+  border-radius: 8px;
+  color: #c7a6ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  &:hover {
+    box-shadow: 0 0 16px rgba(83, 20, 132, 0.4);
+    transform: translateY(-1px);
+  }
+}
+
+// ─── Responsive ───
+@media (max-width: 768px) {
+  .dialog-container {
+    padding: 1.2rem;
+    border-radius: 14px;
+    max-height: 90vh;
+  }
+
+  .close-icon {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+
+  .label {
+    font-size: 12px;
+    margin-bottom: 0.6rem;
+  }
+
+  .left-panel {
+    .dialog-title {
+      font-size: 22px;
+      line-height: 28px;
+      margin-bottom: 0.8rem;
+    }
+
+    .dialog-description {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  // Architecture diagram mobile
+  .architecture {
+    padding: 1rem 0.6rem;
+    gap: 0.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .arch-column {
+    &.gateway {
+      transform: translate(21px, 8px);
+
+      .gateway-icon {
+        width: 70px;
+        height: 59px;
+        margin-bottom: -8px;
+      }
+
+      .gateway-label {
+        font-size: 10px;
+        line-height: 12px;
+      }
+
+      .gateway-sub {
+        font-size: 8px;
+        line-height: 10px;
+      }
+    }
+  }
+
+  .arch-item {
+    font-size: 9px;
+
+    &.tenant {
+      width: 80px;
+      height: 22px;
+      padding: 0 6px;
+      gap: 3px;
+      font-size: 8px;
+
+      .tenant-icon {
+        width: 14px;
+        height: 9px;
+      }
+    }
+  }
+
+  .bracket {
+    right: -6px;
+    width: 8px;
+
+    .bracket-arm-top {
+      top: 11px;
+    }
+
+    .bracket-vertical {
+      top: 11px;
+      bottom: 11px;
+    }
+
+    .bracket-arm-bottom {
+      bottom: 11px;
+    }
+  }
+
+  .line-horizontal {
+    margin-left: 3px;
+    margin-right: -35px;
+
+    .arrow-mid,
+    .arrow-end {
+      width: 7px;
+      height: 7px;
+    }
+  }
+
+  .line-gateway-services {
+    margin-left: 6px;
+    margin-right: 3px;
+
+    .arrow-return,
+    .arrow-to-services {
+      width: 7px;
+      height: 7px;
+    }
+  }
+
+  .services-card {
+    padding: 3px 5px 6px;
+    gap: 0.2rem;
+    border-radius: 8px;
+  }
+
+  .service-item {
+    // Kafka Stream
+    &:nth-child(1) {
+      transform: translateY(1px);
+
+      .service-icon {
+        width: 22px;
+        height: 20px;
+      }
+    }
+
+    // PostgreSQL
+    &:nth-child(2) {
+      transform: translateY(-1px);
+
+      .service-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      span {
+        margin-top: -5px;
+      }
+    }
+
+    // Redis
+    &:nth-child(3) {
+      transform: translateY(0px);
+
+      .service-icon {
+        width: 25px;
+        height: 23px;
+      }
+
+      span {
+        margin-top: 0px;
+      }
+    }
+
+    span {
+      font-size: 7px;
+      line-height: 9px;
+    }
+  }
+
+  // Challenge
+  .challenge-section {
+    .section-label {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .challenge-text {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  // Right panel
+  .right-panel {
+    min-width: unset;
+  }
+
+  .overview-items {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .overview-key {
+    min-width: 60px;
+  }
+
+  // Close button
+  .close-button {
+    width: 100%;
+    height: 40px;
+    font-size: 13px;
+  }
+}

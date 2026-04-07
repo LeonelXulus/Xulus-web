@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth <= 768;
+      this.isMobile = window.innerWidth <= 900;
       this.scrolled = this.getScrollY() > 50;
 
       window.addEventListener('scroll', this.boundScroll, true);
@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private handleResize() {
     const wasMobile = this.isMobile;
-    this.isMobile = window.innerWidth <= 768;
+    this.isMobile = window.innerWidth <= 900;
     if (wasMobile !== this.isMobile) {
       if (!this.isMobile && this.isMenuOpen) {
         this.closeMenu();
