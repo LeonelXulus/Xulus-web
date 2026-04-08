@@ -50,7 +50,7 @@
     background-color: #676464;
     align-self: stretch;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       display: none;
     }
   }
@@ -113,7 +113,7 @@
       display: inline-block;
       vertical-align: middle;
 
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         margin-right: 10px;
 
       }
@@ -121,7 +121,7 @@
     }
 
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       width: 10rem !important;
 
     }
@@ -174,7 +174,7 @@
     font-size: 20px;
     line-height: 24px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       font-size: 16px;
     }
 
@@ -186,7 +186,7 @@
   // ----------------------------
   // MEDIA QUERY PARA PANTALLAS PEQUEÑAS (≤768px)
   // ----------------------------
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .material-icons {
       margin-right: 1rem !important;
       margin-left: 0rem !important;
